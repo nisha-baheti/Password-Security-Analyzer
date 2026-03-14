@@ -33,7 +33,7 @@ password-security-analyzer
 
 1. Clone the repository
 
-git clone https://github.com/yourusername/password-security-analyzer.git
+git clone https://github.com/nisha-baheti/password-security-analyzer.git
 
 2. Navigate to the project directory
 
