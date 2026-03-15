@@ -41,7 +41,7 @@ password_strength_analyzer/
 
 Clone the repository:
 
-git clone https://github.com/nisha-baheti/password-strength-analyzer.git
+git clone https://github.com/nisha-baheti/Password-Security-Analyzer.git
 
 Navigate to the project:
 
