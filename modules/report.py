@@ -20,7 +20,8 @@ def print_report(entropy, score, strength, crack_times, attack_results):
 
     console.print("\n[bold yellow]Crack Time Estimates[/bold yellow]")
 
-    console.print(f"Estimated crack time: {crack_times} years")
+    for device, years in crack_times.items():
+        console.print(f"{device}: {years} years")
 
     console.print("\n[bold red]Attack Simulation[/bold red]")
 
