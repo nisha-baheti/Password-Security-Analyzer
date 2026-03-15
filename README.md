@@ -1,113 +1,95 @@
-# Password Security Analyzer
+# Password Strength Analyzer
 
-A Python-based cybersecurity tool that evaluates password strength using entropy analysis, dictionary attack detection, and weak pattern identification. The tool generates a detailed password security report and provides recommendations for improving password robustness.
-
----
+A cybersecurity tool that evaluates password security using entropy analysis, dictionary attack simulation, pattern detection, and crack-time estimation.
 
 ## Features
 
-- Entropy-based password strength evaluation
-- Detection of weak password patterns (repeated characters, sequential patterns)
-- Dictionary attack simulation using common password datasets
-- Security scoring system with strength classification
-- Detailed command-line password security report
-- Actionable suggestions for improving password strength
-
----
+- Entropy-based password strength calculation
+- Dictionary attack detection
+- Hybrid attack simulation
+- Pattern detection (sequential characters, repeated characters)
+- Password breach check using SHA-1 hashing
+- Crack time estimation for CPU, GPU, and supercomputer attacks
+- Security score classification
+- Password analysis logging
+- Rich CLI security report visualization
 
 ## Project Structure
 
-password-security-analyzer
+password_strength_analyzer/
 │
-├── main.py                # Main program that runs the analyzer
-├── entropy.py             # Calculates password entropy
-├── dictionary_check.py    # Checks passwords against common password lists
-├── pattern_detection.py   # Detects weak patterns in passwords
-├── utils.py               # Scoring system and strength classification
-├── password_dataset.txt   # Common password dataset for dictionary checks
-└── README.md              # Project documentation
-
----
+├── main.py
+├── entropy.py
+├── dictionary_check.py
+├── pattern_detection.py
+├── crack_time.py
+├── attack_simulation.py
+├── breach_check.py
+├── utils.py
+├── report.py
+├── logger.py
+│
+├── datasets/
+│   └── common_pw.txt
+│
+├── logs/
+│   └── password_logs.txt
+│
+└── requirements.txt
 
 ## Installation
 
-1. Clone the repository
+Clone the repository:
 
-git clone https://github.com/nisha-baheti/Password-Security-Analyzer.git
+git clone https://github.com/nisha-baheti/password-strength-analyzer.git
 
-2. Navigate to the project directory
+Navigate to the project:
 
-cd password-security-analyzer
+cd password-strength-analyzer
 
-3. Run the program
+Install dependencies:
 
-python main.py
-
----
+pip install -r requirements.txt
 
 ## Usage
 
-Run the analyzer and enter a password when prompted.
+Run the analyzer:
 
-Example:
+python main.py
 
-Enter password to analyze: password123
+Or analyze a password directly:
 
-Output:
+python main.py --password MyPassword123!
+
+## Example Output
 
 Password Security Report
-------------------------
-Entropy: 36.4 bits
-Score: 35 / 100
-Strength: Moderate
 
-Warning: Password contains common dictionary words
+Entropy: 58.99 bits  
+Score: 20/100  
+Strength: Weak  
 
-Suggestions:
-- Increase password length
-- Add uppercase letters
-- Add special characters
+Crack Time Estimates:
+CPU: 18153 years  
+GPU: 18 years  
+Supercomputer: 0.018 years  
 
----
+Attack Simulation:
+Dictionary Attack: SAFE  
+Hybrid Attack: LIKELY  
+Numeric Attack: SAFE  
 
-## Security Analysis Metrics
+## Technologies Used
 
-The analyzer evaluates password strength using:
-
-- **Entropy Calculation**  
-  Estimates password randomness using character set size and password length.
-
-- **Dictionary Attack Detection**  
-  Checks whether the password appears in a dataset of commonly used passwords.
-
-- **Pattern Detection**  
-  Detects weak patterns such as repeated characters or sequential keyboard patterns.
-
-- **Strength Scoring System**  
-  Generates a score out of 100 based on multiple security factors.
-
----
+Python  
+Regular Expressions  
+Cryptographic Hashing (SHA-1)  
+Entropy Calculations  
+CLI Reporting with Rich  
 
 ## Future Improvements
 
-Possible enhancements for future versions:
-
-- Integration with large leaked password datasets
-- GUI-based password analyzer
-- Password breach detection using online APIs
-- Machine learning-based password strength prediction
-- Integration with password manager tools
-
----
-
-## Author
-
-**Nisha Baheti**  
-B.E. Computer Science & Engineering  
-University College of Engineering, Osmania University
-
----
-
-## License
-
-This project is for educational and research purposes.
+- Integration with real breach databases
+- Rule-based password attack simulation
+- Machine learning password strength prediction
+- Web interface for password analysis
