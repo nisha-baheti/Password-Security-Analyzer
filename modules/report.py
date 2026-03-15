@@ -3,7 +3,7 @@ from rich.table import Table
 
 console = Console()
 
-def print_report(entropy, score, strength, crack_times, attack_results):
+def print_report(entropy, score, strength, crack_times, attack_results, suggestions):
 
     console.print("\n[bold cyan]Password Security Report[/bold cyan]\n")
 
@@ -26,4 +26,16 @@ def print_report(entropy, score, strength, crack_times, attack_results):
     console.print("\n[bold red]Attack Simulation[/bold red]")
 
     for attack, result in attack_results.items():
-        console.print(f"{attack}: {result}")
+
+        if result in ["COMPROMISED", "HIGH RISK", "LIKELY"]:
+            console.print(f"{attack}: [bold red]{result}[/bold red]")
+        else:
+            console.print(f"{attack}: [bold green]{result}[/bold green]")
+
+    console.print("\n[bold green]Security Suggestions[/bold green]")
+
+    if suggestions:
+        for s in suggestions:
+            console.print(f"- {s}")
+    else:
+        console.print("No suggestions. Password looks strong.")

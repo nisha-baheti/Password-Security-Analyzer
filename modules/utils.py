@@ -37,3 +37,24 @@ def classify_password(score):
         return "Strong"
     else:
         return "Very Strong"
+
+def generate_suggestions(password, patterns, dictionary_flag):
+
+    suggestions = []
+
+    if len(password) < 12:
+        suggestions.append("Use at least 12 characters")
+
+    if dictionary_flag:
+        suggestions.append("Avoid dictionary words")
+
+    if patterns:
+        suggestions.append("Avoid predictable patterns")
+
+    if password.isalpha():
+        suggestions.append("Add numbers and symbols")
+
+    if password.isnumeric():
+        suggestions.append("Avoid numeric-only passwords")
+
+    return suggestions

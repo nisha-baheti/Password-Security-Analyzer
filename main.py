@@ -9,14 +9,13 @@ from modules.utils import calculate_score, classify_password
 from modules.attack_simulation import simulate_attacks
 from modules.report import print_report
 from modules.logger import log_analysis
+from modules.utils import calculate_score, classify_password, generate_suggestions
 
 
 def analyze(password):
 
-    # Load dataset
     dictionary = load_dictionary("datasets/common_pw.txt")
 
-    # Core analysis
     entropy = calculate_entropy(password)
 
     patterns = detect_patterns(password)
@@ -25,21 +24,18 @@ def analyze(password):
 
     crack_times = estimate_crack_time(entropy)
 
-    # Attack simulation (FIX)
     attack_results = simulate_attacks(password, dictionary)
 
-    # Breach check (optional but good)
     breach_flag = check_breach(password)
 
-    # Score calculation
     score = calculate_score(password, entropy, patterns, dictionary_flag)
 
     strength = classify_password(score)
 
-    # Print report
-    print_report(entropy, score, strength, crack_times, attack_results)
+    suggestions = generate_suggestions(password, patterns, dictionary_flag)
 
-    # Log result
+    print_report(entropy, score, strength, crack_times, attack_results, suggestions)
+
     log_analysis(password, score, strength)
 
 

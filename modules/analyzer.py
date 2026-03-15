@@ -8,26 +8,12 @@ from utils import calculate_score, classify_password
 
 
 def analyze_password(password):
-
-    # Load dictionary dataset
     dictionary = load_dictionary("datasets/common_pw.txt")
-
-    # Entropy calculation
     entropy = calculate_entropy(password)
-
-    # Pattern detection
     patterns = detect_patterns(password)
-
-    # Dictionary attack check
     dictionary_flag = check_dictionary(password, dictionary)
-
-    # Crack time estimation
     crack_time = estimate_crack_time(entropy)
-
-    # Attack simulation
     attack_results = simulate_attacks(password, dictionary)
-
-    # Breach dataset check
     breach_flag = check_breach(password)
 
     # Score calculation
@@ -36,7 +22,6 @@ def analyze_password(password):
     # Strength classification
     strength = classify_password(score)
 
-    # Return all results as dictionary
     return {
         "entropy": entropy,
         "patterns": patterns,
